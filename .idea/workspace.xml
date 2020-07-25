@@ -2,7 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="248192e1-8941-4dc7-9808-34031568b475" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/auth.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/auth.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/middleware.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/middleware.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,5 +61,15 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="2" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="954" y="299" width="596" height="522" key="find.popup" timestamp="1595670321429">
+      <screen x="0" y="0" width="1792" height="1120" />
+    </state>
+    <state x="954" y="299" width="596" height="522" key="find.popup/0.0.1792.1120@0.0.1792.1120" timestamp="1595670321429" />
+    <state x="995" y="222" width="670" height="676" key="search.everywhere.popup" timestamp="1595672190044">
+      <screen x="0" y="0" width="1792" height="1120" />
+    </state>
+    <state x="995" y="222" width="670" height="676" key="search.everywhere.popup/0.0.1792.1120@0.0.1792.1120" timestamp="1595672190044" />
   </component>
 </project>

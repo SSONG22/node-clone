@@ -1,3 +1,4 @@
+
 exports.isLoggedIn = (req, res, next) => {
   if (req.isAuthenticated()) {
     next(); // 그냥 next 를 하면 다음 미들웨어로 가고, 안에 인자를 넣으면 에러를 처리함
@@ -13,8 +14,3 @@ exports.isNotLoggedIn = (req, res, next) => {
     res.status(401).send("로그인하지 않은 사용자만 접근 가능합니다");
   }
 };
-
-exports.jtw = (req, res, next) => {
-
-  console.log('hehe');
-}

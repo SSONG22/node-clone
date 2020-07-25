@@ -7,6 +7,9 @@ const { User } = require("../models");
 //service
 const authService = require("../services/auth");
 
+//jwt
+const jwt = require("../utils/jwt");
+
 const signUp = async (req, res, next) => {
   try {
     //중복검사
@@ -29,11 +32,18 @@ const signUp = async (req, res, next) => {
   }
 };
 
-const signIn = async (req,res) => {
+const signIn = async (req,res,next) => {
   try{
-
+    const exUser = await authService.checkUser(req.body.email);
+    if(exUser) {
+      const token = await jwt.getJwt(req.body);
+      res.status(200).send(token);
+    }
+    else{
+      res.status(403).send('존재하지 않는 유저입니다.')
+    }
   }catch(error){
-    console.log(error);
+    next(error);
   }
 }
 
