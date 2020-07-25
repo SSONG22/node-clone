@@ -10,12 +10,7 @@ const singUpService = require("../services/signUp");
 const signUp = async (req, res, next) => {
   try {
     //중복검사
-    console.log(req.body);
-    const exUser = await User.findOne({
-      where: {
-        email: req.body.email,
-      },
-    });
+    const exUser = await singUpService.checkUser(req.body.email);
     if (exUser) {
       return res.status(403).send("이미 사용중인 아이디입니다"); //응답은 1번만
     }
