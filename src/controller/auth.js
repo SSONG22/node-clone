@@ -5,19 +5,19 @@ const { Op } = require("sequelize");
 const { User } = require("../models");
 
 //service
-const singUpService = require("../services/auth");
+const authService = require("../services/auth");
 
 const signUp = async (req, res, next) => {
   try {
     //중복검사
     const data = req.body;
 
-    const exUser = await singUpService.checkUser(data.email);
+    const exUser = await authService.checkUser(data.email);
     if (exUser) {
       return res.status(403).send("이미 사용중인 아이디입니다"); //응답은 1번만
     }
     const hashedPassword = await bcrypt.hash(data.password, 10); //해시화
-    const result = await singUpService.createUser(
+    const result = await authService.createUser(
       data.email,
       data.nickname,
       hashedPassword
