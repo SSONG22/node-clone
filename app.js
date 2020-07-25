@@ -2,7 +2,7 @@ const express = require("express");
 const dotenv = require("dotenv");
 
 //route
-const signUp = require("./src/routes/signUp");
+const auth = require("./src/routes/auth");
 
 //db
 const db = require("./src/models");
@@ -25,7 +25,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // 회원가입
-app.use("/user", signUp);
+app.use('/user', auth);
 
 app.listen(3060, () => {
   console.log("서버실행중");

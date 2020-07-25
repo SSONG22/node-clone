@@ -5,7 +5,7 @@ const { Op } = require("sequelize");
 const { User } = require("../models");
 
 //service
-const singUpService = require("../services/signUp");
+const singUpService = require("../services/auth");
 
 const signUp = async (req, res, next) => {
   try {
@@ -29,4 +29,13 @@ const signUp = async (req, res, next) => {
   }
 };
 
+const signIn = async (req,res) => {
+  try{
+
+  }catch(error){
+    console.log(error);
+  }
+}
+
 module.exports.signUp = signUp;
+module.exports.signIn = signIn;
