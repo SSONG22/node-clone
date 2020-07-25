@@ -22,7 +22,7 @@ db.sequelize
   .catch(console.error);
 
 // 회원가입
-app.use(signUp);
+app.use("/user", signUp);
 
 app.listen(3060, () => {
   console.log("서버실행중");
