@@ -1,0 +1,10 @@
+.serverless
+server.pem
+node_modules
+.env
+
+.cache
+
+.nuxt
+
+.vuepress/dist
