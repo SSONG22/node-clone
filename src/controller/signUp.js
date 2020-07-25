@@ -2,6 +2,7 @@ const express = require("express");
 const bcrypt = require("bcrypt");
 const passport = require("passport");
 const { Op } = require("sequelize");
+const { User } = require("../models");
 
 //service
 const singUpService = require("../services/signUp");
@@ -9,6 +10,7 @@ const singUpService = require("../services/signUp");
 const signUp = async (req, res, next) => {
   try {
     //중복검사
+    console.log(req.body);
     const exUser = await User.findOne({
       where: {
         email: req.body.email,
@@ -22,7 +24,7 @@ const signUp = async (req, res, next) => {
     const hashedPassword = await bcrypt.hash(req.body.password, 10); //해시화
     const result = await singUpService.createUser(
       data.email,
-      data.nickame,
+      data.nickname,
       data.password
     );
     res.status(200).send("ok");

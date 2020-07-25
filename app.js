@@ -21,6 +21,9 @@ db.sequelize
   })
   .catch(console.error);
 
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
 // 회원가입
 app.use("/user", signUp);
 
