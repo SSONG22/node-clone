@@ -1,8 +1,9 @@
 const jwt = require('jsonwebtoken');
 
+const secretOrPrivateKey = process.env.JWT_SECRET;
+
 const getJwt = async (payload) => {
-  const secretOrPrivateKey = process.env.JWT_SECRET;
-   const jsonWebToken = new Promise((resolve, reject) => {
+  return new Promise((resolve, reject) => {
     jwt.sign(
       {
         _id: payload.email,
@@ -17,6 +18,20 @@ const getJwt = async (payload) => {
         else resolve({jwt: token})
       })
   })
-  return jsonWebToken;
+  // return jsonWebToken;
 }
+
+//jwt 검증
+const checkJWt = async (payload) => {
+  return new Promise(
+    (resolve, reject) => {
+      jwt.verify(payload, secretOrPrivateKey,
+        (err, decoded) => {
+          if (err) reject(err);
+          else resolve(decoded);
+        })
+    }
+  )
+}
+
 module.exports.getJwt = getJwt
