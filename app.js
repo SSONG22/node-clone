@@ -1,10 +1,7 @@
 const express = require("express");
 const dotenv = require("dotenv");
-<<<<<<< .merge_file_QC0y0a
-=======
 const cookieParser = require("cookie-parser");
 const session = require("express-session");
->>>>>>> .merge_file_qRPM0N
 
 //route
 const auth = require("./src/routes/auth");
@@ -28,13 +25,6 @@ db.sequelize
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-<<<<<<< .merge_file_QC0y0a
-
-// 회원가입
-app.use('/user', auth);
-
-app.listen(3060, () => {
-=======
 app.use(cookieParser(process.env.COOKIE_SECRET));
 app.use(
   session({
@@ -53,6 +43,5 @@ app.use(
 app.use("/user", auth);
 
 app.listen(3065, () => {
->>>>>>> .merge_file_qRPM0N
   console.log("서버실행중");
 });

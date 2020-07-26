@@ -5,7 +5,7 @@ const authController = require("../controller/auth");
 //POST /user/
 router.post("/", authController.signUp);
 //POST /user/signIn
-router.post("/signIn", middleware.jwt, authController.signIn);
+router.post("/signIn", authController.signIn);
 //POST /user/auth
 router.post("/auth", authController.certification);
 //POST /user/auth/:token
