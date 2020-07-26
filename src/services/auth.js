@@ -1,8 +1,4 @@
-<<<<<<< .merge_file_0jsF37
-const { User } = require("../models");
-=======
 const { User, Auth } = require("../models");
->>>>>>> .merge_file_UHjweJ
 
 const createUser = (email, nickname, password) => {
   return User.create({
@@ -21,10 +17,6 @@ const checkUser = (email) => {
   });
 };
 
-<<<<<<< .merge_file_0jsF37
-module.exports.createUser = createUser;
-module.exports.checkUser = checkUser;
-=======
 const settingToken = async (data) => {
   const exAuth = await Auth.findOne({
     where: { email: data.email },
@@ -57,4 +49,3 @@ module.exports.createUser = createUser;
 module.exports.checkUser = checkUser;
 module.exports.settingToken = settingToken;
 module.exports.checkEmail = checkEmail;
->>>>>>> .merge_file_UHjweJ
