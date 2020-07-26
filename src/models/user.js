@@ -23,10 +23,6 @@ module.exports = class Comment extends Model {
           type: DataTypes.STRING(100),
           allowNull: false,
         },
-        certification: {
-          type: DataTypes.BOOLEAN,
-          allowNull: false,
-        },
       },
       {
         modelName: "User",
