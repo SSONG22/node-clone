@@ -1,5 +1,7 @@
 const express = require("express");
 const dotenv = require("dotenv");
+const cookieParser = require("cookie-parser");
+const session = require("express-session");
 
 //route
 const auth = require("./src/routes/auth");
@@ -23,10 +25,23 @@ db.sequelize
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(cookieParser(process.env.COOKIE_SECRET));
+app.use(
+  session({
+    saveUninitialized: false,
+    resave: false,
+    secret: process.env.COOKIE_SECRET,
+    // cookie: {
+    //   httpOnly: true,
+    //   secure: false,
+    //   domain: process.env.NODE_ENV === "production" && ".cheering99.shop",
+    // },
+  })
+);
 
-// 회원가입
-app.use('/user', auth);
+// auth
+app.use("/user", auth);
 
-app.listen(3060, () => {
+app.listen(3065, () => {
   console.log("서버실행중");
 });

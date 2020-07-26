@@ -1,5 +1,6 @@
 const Sequelize = require("sequelize");
 const user = require("./user");
+const auth = require("./auth");
 
 const env = process.env.NODE_ENV || "development"; //||기본값
 const config = require("../config/config")[env]; //development 를 가져와라
@@ -13,6 +14,7 @@ const sequelize = new Sequelize(
 );
 
 db.User = user;
+db.Auth = auth;
 
 Object.keys(db).forEach((modelName) => {
   db[modelName].init(sequelize);

@@ -14,7 +14,6 @@ exports.isNotLoggedIn = (req, res, next) => {
   }
 };
 
-exports.jtw = (req, res, next) => {
-
-  console.log('hehe');
-}
+exports.jwt = (req, res, next) => {
+  console.log("hehe");
+};
