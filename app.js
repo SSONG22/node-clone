@@ -2,6 +2,32 @@ const express = require("express");
 const dotenv = require("dotenv");
 const cookieParser = require("cookie-parser");
 const session = require("express-session");
+const path = require("path");
+const swaggerJSDoc = require("swagger-jsdoc");
+const swaggerUi = require("swagger-ui-express");
+
+// Swagger definition
+const swaggerDefinition = {
+  info: {
+    // API informations (required)
+    title: "Swagger :: 노드 클론 api", // Title (required)
+    version: "1.0.0", // Version (required)
+    description: "swagger API", // Description (optional)
+  },
+  host: "localhost:3065", // Host (optional)
+  basePath: "/", // Base path (optional)
+  // schemes:['http',"https"],
+};
+// Options for the swagger docs
+const options = {
+  // Import swaggerDefinitions
+  swaggerDefinition,
+  // Path to the API docs
+  apis: ["./src/routes/auth.swagger.js"],
+};
+
+// Initialize swagger-jsdoc -> returns validated swagger spec in json format
+const swaggerSpec = swaggerJSDoc(options);
 
 //route
 const auth = require("./src/routes/auth");
@@ -11,6 +37,7 @@ const db = require("./src/models");
 
 dotenv.config();
 const app = express();
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 app.get("/", (req, res) => {
   res.send("hello express!");

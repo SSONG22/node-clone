@@ -8,7 +8,7 @@ router.post("/", authController.signUp);
 router.post("/signIn", authController.signIn);
 //POST /user/auth
 router.post("/auth", authController.certification);
-//POST /user/auth/:token
+//GET /user/auth/:token
 router.get("/auth/:token", authController.verify);
 
 module.exports = router;
