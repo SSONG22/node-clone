@@ -27,8 +27,10 @@ const getJwt = async (payload) => {
 const checkJWT = async (payload) => {
   return new Promise((resolve, reject) => {
     jwt.verify(payload, secretOrPrivateKey, (err, decoded) => {
-      if (err) reject(err);
-      else resolve(decoded);
+      if (err) {
+        console.error(err);
+        reject(err);
+      } else resolve(decoded);
     });
   });
 };
