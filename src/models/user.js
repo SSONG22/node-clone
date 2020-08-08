@@ -1,7 +1,7 @@
 const DataTypes = require("sequelize");
 const { Model } = DataTypes;
 
-module.exports = class Comment extends Model {
+module.exports = class User extends Model {
   static init(sequelize) {
     //model에 init을 호출해야
     return super.init(

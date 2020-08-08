@@ -1,28 +1,26 @@
 const DataTypes = require("sequelize");
 const { Model } = DataTypes;
 
-module.exports = class Auth extends Model {
+module.exports = class Product extends Model {
   static init(sequelize) {
     //model에 init을 호출해야
     return super.init(
       {
-        token: {
-          type: DataTypes.STRING(100),
-          allowNull: true,
-          unique: true,
-        },
-        email: {
-          type: DataTypes.STRING(30),
+        name: {
+          type: DataTypes.STRING(50),
           allowNull: false,
-          unique: true,
+        },
+        price: {
+          type: DataTypes.STRING(50),
+          allowNull: false,
         },
       },
       {
-        modelName: "Auth",
-        tableName: "auths",
+        modelName: "Product",
+        tableName: "products",
         charset: "utf8mb4",
         collate: "utf8mb4_general_ci", //한글임티 저장
-        sequelize,
+        sequelize, //연결 객체
       }
     );
   }
